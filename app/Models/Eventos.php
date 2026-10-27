@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class EventoJira extends Model
+class Eventos extends Model
 {
-    protected $table = 'evento_jira';
+    protected $table = 'eventos';
 
     protected $fillable = [
         'id_empresa',
         'id_evento_externo',
         'chave_issue',
-        'id_usuario_jira',
+        'id_usuario_app',
         'tipo_evento',
         'data_evento',
         'payload',
@@ -35,6 +35,6 @@ class EventoJira extends Model
 
     public function gatilhos(): HasMany
     {
-        return $this->hasMany(Gatilho::class, 'id_evento_jira');
+        return $this->hasMany(Gatilho::class, 'id_evento');
     }
 }

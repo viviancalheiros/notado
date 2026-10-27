@@ -14,7 +14,7 @@ class Gatilho extends Model
         'id_empresa',
         'id_funcionario',
         'id_gestor',
-        'id_evento_jira',
+        'id_evento',
         'tipo_gatilho',
         'data_ocorrencia',
         'status',
@@ -44,9 +44,9 @@ class Gatilho extends Model
         return $this->belongsTo(Funcionario::class, 'id_gestor');
     }
 
-    public function eventoJira(): BelongsTo
+    public function evento(): BelongsTo
     {
-        return $this->belongsTo(EventoJira::class, 'id_evento_jira');
+        return $this->belongsTo(Evento::class, 'id_evento');
     }
 
     public function reconhecimento(): HasOne

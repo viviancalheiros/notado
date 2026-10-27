@@ -8,14 +8,14 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('evento_jira', function (Blueprint $table) {
+        Schema::create('eventos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_empresa')
                 ->constrained('empresas', 'id')
                 ->cascadeOnDelete();
             $table->string('id_evento_externo');
             $table->string('chave_issue')->index();
-            $table->string('id_usuario_jira')->nullable();
+            $table->string('id_usuario_app')->nullable();
             $table->string('tipo_evento');
             $table->dateTime('data_evento');
             $table->json('payload')->nullable();
@@ -28,6 +28,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('evento_jira');
+        Schema::dropIfExists('eventos');
     }
 };

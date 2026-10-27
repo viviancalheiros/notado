@@ -23,9 +23,9 @@ class Empresa extends Model
         return $this->hasMany(Equipe::class, 'id_empresa', 'id');
     }
 
-    public function eventosJira()
+    public function eventos()
     {
-        return $this->hasMany(EventoJira::class, 'id_empresa');
+        return $this->hasMany(Eventos::class, 'id_empresa');
     }
 
     public function gatilhos()

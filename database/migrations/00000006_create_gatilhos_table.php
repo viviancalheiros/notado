@@ -23,9 +23,9 @@ return new class extends Migration
                 ->constrained('funcionarios', 'id')
                 ->restrictOnDelete();
 
-            $table->foreignId('id_evento_jira')
+            $table->foreignId('id_evento')
                 ->nullable()
-                ->constrained('evento_jira', 'id')
+                ->constrained('eventos', 'id')
                 ->nullOnDelete();
 
             $table->string('tipo_gatilho');
